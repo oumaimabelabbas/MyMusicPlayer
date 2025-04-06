@@ -27,6 +27,7 @@ function loadMusic(index){
   musicartist.textContent=AllMusic[index-1].artist;
   musicimg.src=AllMusic[index-1].img;
   musicaudio.src=`songs/${AllMusic[index-1].src}.mp3`;
+  playingnow();
 }
 //play music function
 function PlayMusic(){
@@ -162,17 +163,18 @@ hidemusiclist.addEventListener("click",()=>{
   showmusiclist.click();
 });
 
-//add the music list to our moremusiclist 
+//the ul of the moremusiclist 
 const ullist = musiclist.querySelector("ul");
-
+//add the music list to our moremusiclist 
 for (i=0;i<AllMusic.length;i++){
   let limusic=document.createElement("li");
+  limusic.setAttribute("li-index",`${i+1}`);
   limusic.innerHTML=`<div class="row">
             <span>${AllMusic[i].name}</span>
             <p>${AllMusic[i].artist}</p>
           </div>
           <audio class="${AllMusic[i].src}" src="songs/${AllMusic[i].src}.mp3"></audio>
-          <span id="${AllMusic[i].src}">3:40</span>`;
+          <span id="${AllMusic[i].src}" class="audio-duration">3:40</span>`;
   ullist.appendChild(limusic);
   let audiodurationspan = document.getElementById(`${AllMusic[i].src}`);
   let audioli = document.querySelector(`.${AllMusic[i].src}`);
@@ -186,7 +188,35 @@ for (i=0;i<AllMusic.length;i++){
     const durationmin = Math.floor(audioduration/60);
     const durationsec = Math.floor(audioduration%60);
     audiodurationspan.textContent =`${durationmin}:${durationsec.toString().padStart(2,"0")}`;
+    audiodurationspan.setAttribute("duration",`${durationmin}:${durationsec.toString().padStart(2,"0")}`);
   });
 };
+//click on li music so we can play ot
+const songsli=document.querySelectorAll("li");
+function playingnow(){
+  songsli.forEach(li=>{
+  let spanduration = li.querySelector(".audio-duration");
+  li.setAttribute("onclick","clicked(this)");
+  if(li.classList.contains("playing")){
+    li.classList.remove("playing");
+    spanduration.textContent=spanduration.getAttribute("duration");
+  }
+  if(li.getAttribute("li-index")==musicIndex){
+    li.classList.add("playing");
+    spanduration.textContent="Playing";
+    
+  }
+}); 
+}
+
+function clicked(element){
+  //element is the li
+  const index = element.getAttribute("li-index");
+  musicIndex=index;
+  loadMusic(musicIndex);
+  PlayMusic();
+  playingnow();
+}
+
 
 

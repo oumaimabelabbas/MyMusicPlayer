@@ -204,6 +204,9 @@ body{
 .music-list ul li .row span{
   font-size: 18px;
 }
+.music-list ul li.playing{
+  color:white;
+}
 ul li .row p{
   opacity: 0.9;
 }
