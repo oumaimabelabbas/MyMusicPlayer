@@ -26,7 +26,7 @@ function loadMusic(index){
   musicname.textContent=AllMusic[index-1].name;
   musicartist.textContent=AllMusic[index-1].artist;
   musicimg.src=AllMusic[index-1].img;
-  musicaudio.src=AllMusic[index-1].src;
+  musicaudio.src=`songs/${AllMusic[index-1].src}.mp3`;
 }
 //play music function
 function PlayMusic(){
@@ -162,6 +162,31 @@ hidemusiclist.addEventListener("click",()=>{
   showmusiclist.click();
 });
 
+//add the music list to our moremusiclist 
+const ullist = musiclist.querySelector("ul");
 
+for (i=0;i<AllMusic.length;i++){
+  let limusic=document.createElement("li");
+  limusic.innerHTML=`<div class="row">
+            <span>${AllMusic[i].name}</span>
+            <p>${AllMusic[i].artist}</p>
+          </div>
+          <audio class="${AllMusic[i].src}" src="songs/${AllMusic[i].src}.mp3"></audio>
+          <span id="${AllMusic[i].src}">3:40</span>`;
+  ullist.appendChild(limusic);
+  let audiodurationspan = document.getElementById(`${AllMusic[i].src}`);
+  let audioli = document.querySelector(`.${AllMusic[i].src}`);
+  console.log(audiodurationspan);
+  console.log(audioli);
+  //set up the duration of each song to display on moremusiclist
+  audioli.addEventListener("loadeddata",()=>{
+    //loadeddata fires once to show the duration ..
+    //set the duration in the form 0:00
+    let audioduration=audioli.duration;
+    const durationmin = Math.floor(audioduration/60);
+    const durationsec = Math.floor(audioduration%60);
+    audiodurationspan.textContent =`${durationmin}:${durationsec.toString().padStart(2,"0")}`;
+  });
+};
 
 
