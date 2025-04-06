@@ -123,6 +123,34 @@ repeat.addEventListener("click",()=>{
     break;
   }
 });
+//now after the song ended , we will work on it based on the icon
+musicaudio.addEventListener("ended",()=>{
+  //after the song has ended which icon i have 
+  let gettext = repeat.textContent;
+  switch(gettext){
+    //if its on repeat icon then we will go the next song
+    case"repeat":
+    nextMusic();
+    break;
+    // if its on repeat one we need to repeat the song
+    case"repeat_one":
+    musicaudio.currentTime=0;
+    loadMusic(musicIndex);
+    PlayMusic();
+    break;
+    //if its shuffle we generate a random number between 1 and the length of our music list
+    case"shuffle":
+    //we loop until we find an index thats not our current music index
+    let randomindex;
+    do{
+      randomindex = Math.floor((Math.random()*AllMusic.length)+1);
+    }while(musicIndex==randomindex);
+    musicIndex=randomindex;
+    loadMusic(musicIndex);
+    PlayMusic();
+    break;
+  }
+});
 
 
 
