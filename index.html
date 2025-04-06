@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/2775dde967.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Login/Logout</title>
+</head>
+<body>
+  <div class="wrapper">
+    <!--Face-->
+    <div class="top-bar">
+      <i class="fa-solid fa-chevron-down"></i>
+      <span>Now Playing</span>
+      <i class="fas fa-ellipsis-h"></i>
+    </div>
+    <div class="img-area">
+      <img src="images/ruby.jpeg" alt="">
+    </div>
+    <div class="song-details">
+      <p class="name">Jennie - ZEN</p>
+      <p class="artist">Ruby</p>
+    </div>
+    <div class="progress-area">
+      <div class="progress-bar">
+        <span></span>
+      </div>
+      <div class="progress-timer">
+        <span class="current">0:00</span>
+        <span class="duration">3:20</span>
+      </div>
+      <audio id="main-audio" src=""></audio>
+    </div>
+    <div class="controls">
+      <i id="repeat" class="fa-solid fa-repeat"></i>
+      <i id="prev" class="fa-solid fa-backward-step"></i>
+      <!--play pause div its the circle button-->
+      <div class="play-pause">
+        <i class="fa-solid fa-play"></i>
+      </div>
+      <i id="next" class="fa-solid fa-forward-step"></i>
+      <i id="more-music" class="fa-solid fa-list"></i>
+    </div>
+
+
+    <!--Songs List-->
+    <div class="music-list">
+      <div class="header">
+        <div class="row">
+          <i id="more-music" class="fa-solid fa-list"></i>
+          <span>Music List</span>
+        </div>
+        <i id="close" class="fa-solid fa-xmark"></i>
+      </div>
+      <ul>
+        <li>
+          <div class="row">
+            <span>Daft Punk - Around The World</span>
+            <p>Homework</p>
+          </div>
+          <span class="audio-duration">3:40</span>
+        </li>
+        <li>
+          <div class="row">
+            <span>Daft Punk - Around The World</span>
+            <p>Homework</p>
+          </div>
+          <span class="audio-duration">3:40</span>
+        </li>
+        <li>
+          <div class="row">
+            <span>Daft Punk - Around The World</span>
+            <p>Homework</p>
+          </div>
+          <span class="audio-duration">3:40</span>
+        </li>
+        <li>
+          <div class="row">
+            <span>Daft Punk - Around The World</span>
+            <p>Homework</p>
+          </div>
+          <span class="audio-duration">3:40</span>
+        </li>
+        <li>
+          <div class="row">
+            <span>Daft Punk - Around The World</span>
+            <p>Homework</p>
+          </div>
+          <span class="audio-duration">3:40</span>
+        </li>
+        <li>
+          <div class="row">
+            <span>Daft Punk - Around The World</span>
+            <p>Homework</p>
+          </div>
+          <span class="audio-duration">3:40</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <script src="music-list.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
