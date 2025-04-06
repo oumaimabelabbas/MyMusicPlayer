@@ -10,6 +10,7 @@ const progressbar = document.querySelector(".progress-bar");
 const progressarea = document.querySelector(".progress-area");
 const current = document.querySelector(".current");
 const duration = document.querySelector(".duration");
+const repeat = document.querySelector(".controls #repeat");
 
 let musicIndex = 2;
 
@@ -103,6 +104,24 @@ progressarea.addEventListener("click",(e)=>{
   let currentclickwidth = e.offsetX;
   let duration = musicaudio.duration;
   musicaudio.currentTime=(currentclickwidth/totalwidth)*duration;
+});
+//repeat , shuffle songs
+repeat.addEventListener("click",()=>{
+  const repeattext= repeat.textContent;
+  switch(repeattext){
+    case"repeat":
+    repeat.textContent="repeat_one";
+    repeat.title="Song on repeat";
+    break;
+    case"repeat_one":
+    repeat.textContent="shuffle";
+    repeat.title="On Shuffle";
+    break;
+    case"shuffle":
+    repeat.textContent="repeat";
+    repeat.title="Playlist on repeat";
+    break;
+  }
 });
 
 
