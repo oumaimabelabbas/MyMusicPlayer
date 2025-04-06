@@ -166,6 +166,7 @@ body{
 .music-list.show{
   bottom: 0;
   opacity: 1;
+  pointer-events: auto;
 }
 
 .music-list .header .row {
@@ -173,9 +174,11 @@ body{
   align-items: center;
   font-size: 19px;
 }
-.row i{
-  cursor: pointer;
-  margin-right: 5px;
+.music-list .header .row i{
+  cursor: default;
+}
+.header .row span{
+  margin-left: 5px;
 }
 .header #close{
   font-size: 22px;
@@ -200,6 +203,9 @@ body{
 }
 .music-list ul li .row span{
   font-size: 18px;
+}
+ul li .row p{
+  opacity: 0.9;
 }
 ul li .audio-duration{
   font-size: 16px;

@@ -11,6 +11,9 @@ const progressarea = document.querySelector(".progress-area");
 const current = document.querySelector(".current");
 const duration = document.querySelector(".duration");
 const repeat = document.querySelector(".controls #repeat");
+const musiclist = document.querySelector(".music-list");
+const showmusiclist = document.querySelector("#more-music");
+const hidemusiclist = musiclist.querySelector("#close");
 
 let musicIndex = 2;
 
@@ -151,6 +154,14 @@ musicaudio.addEventListener("ended",()=>{
     break;
   }
 });
+//display musiclist if we click on the moremusicbtn
+showmusiclist.addEventListener("click",()=>{
+  musiclist.classList.toggle("show");
+});
+hidemusiclist.addEventListener("click",()=>{
+  showmusiclist.click();
+});
+
 
 
 
