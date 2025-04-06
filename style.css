@@ -78,7 +78,7 @@ body{
 }
 .progress-bar{
   height: 6px;
-  width: 50%;
+  width: 0%;
   background: -moz-linear-gradient(90deg, rgba(0,36,19,1) 0%, rgba(92,31,29,1) 100%, rgba(122,2,2,1) 100%);
   background: -webkit-linear-gradient(90deg, rgba(0,36,19,1) 0%, rgba(92,31,29,1) 100%, rgba(122,2,2,1) 100%);
   background: linear-gradient(90deg, rgba(0,36,19,1) 0%, rgba(92,31,29,1) 100%, rgba(122,2,2,1) 100%);
